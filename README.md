@@ -1,1 +1,1 @@
-# kodilla-java-microservice-config
+# kodilla-java-microservice-config-repo
