@@ -4,6 +4,24 @@ server:
 spring:
   application:
     name: kodilla-microservice-api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: movie-service
+          uri: lb://kodilla-microservice-movie
+          predicates:
+            - Path=/microservice-movies/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Authorization
+        
+        - id: rating-service
+          uri: lb://kodilla-microservice-rating
+          predicates:
+            - Path=/microservice-ratings/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RemoveRequestHeader=Authorization
 
 eureka:
   client:
