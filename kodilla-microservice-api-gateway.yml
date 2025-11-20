@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: kodilla-microservice-api-gateway
+  security:
+    basic:
+      enabled: false
+    user:
+      name:
+      password:
   cloud:
     gateway:
       routes:
