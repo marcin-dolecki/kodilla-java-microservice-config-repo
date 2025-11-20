@@ -23,6 +23,12 @@ spring:
             - RemoveRequestHeader=Cookie
             - RemoveRequestHeader=Authorization
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway,health,info
+
 eureka:
   client:
     register-with-eureka: true
