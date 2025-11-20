@@ -4,10 +4,6 @@ server:
 spring:
   application:
     name: kodilla-microservice-api-gateway
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
-      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
   cloud:
     gateway:
       routes:
@@ -32,6 +28,8 @@ management:
     web:
       exposure:
         include: gateway,health,info
+  security:
+    enabled: false
 
 eureka:
   client:
