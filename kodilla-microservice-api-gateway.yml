@@ -23,6 +23,7 @@ spring:
                 - Path=/microservice-ratings/**
               filters:
                 - RemoveRequestHeader=Cookie
+                - SetRequestHeader=Authorization, Basic ${RATING_BASIC_AUTH}
 
 management:
   endpoints:
