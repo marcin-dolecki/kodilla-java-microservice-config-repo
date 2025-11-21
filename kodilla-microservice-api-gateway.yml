@@ -8,12 +8,11 @@ spring:
     gateway:
       routes:
         - id: movie-service
-          uri: lb://kodilla-microservice-movie
+          uri: http://${MOVIE_USER}:${MOVIE_PASSWORD}@lb://kodilla-microservice-movie
           predicates:
             - Path=/microservice-movies/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RemoveRequestHeader=Authorization
         
         - id: rating-service
           uri: lb://kodilla-microservice-rating
@@ -21,7 +20,6 @@ spring:
             - Path=/microservice-ratings/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RemoveRequestHeader=Authorization
 
 management:
   endpoints:
