@@ -6,21 +6,23 @@ spring:
     name: kodilla-microservice-api-gateway
   cloud:
     gateway:
-      routes:
-        - id: movie-service
-          uri: lb://kodilla-microservice-movie
-          predicates:
-            - Path=/microservice-movies/**
-          filters:
-            - RemoveRequestHeader=Cookie
-            - AddRequestHeader=Authorization, Basic ${MOVIE_BASIC_AUTH}
+      server:
+        webflux:
+          routes:
+            - id: movie-service
+              uri: lb://kodilla-microservice-movie
+              predicates:
+                - Path=/microservice-movies/**
+              filters:
+                - RemoveRequestHeader=Cookie
+                - AddRequestHeader=Authorization, Basic ${MOVIE_BASIC_AUTH}
         
-        - id: rating-service
-          uri: lb://kodilla-microservice-rating
-          predicates:
-            - Path=/microservice-ratings/**
-          filters:
-            - RemoveRequestHeader=Cookie
+            - id: rating-service
+              uri: lb://kodilla-microservice-rating
+              predicates:
+                - Path=/microservice-ratings/**
+              filters:
+                - RemoveRequestHeader=Cookie
 
 management:
   endpoints:
