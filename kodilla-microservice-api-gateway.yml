@@ -15,7 +15,7 @@ spring:
                 - Path=/microservice-movies/**
               filters:
                 - RemoveRequestHeader=Cookie
-                  # - SetRequestHeader=Authorization, Basic ${MOVIE_BASIC_AUTH}
+                - SetRequestHeader=Authorization, Basic ${MOVIE_BASIC_AUTH}
         
             - id: rating-service
               uri: lb://kodilla-microservice-rating
@@ -23,7 +23,7 @@ spring:
                 - Path=/microservice-ratings/**
               filters:
                 - RemoveRequestHeader=Cookie
-                  # - SetRequestHeader=Authorization, Basic ${RATING_BASIC_AUTH}
+                - SetRequestHeader=Authorization, Basic ${RATING_BASIC_AUTH}
 
 management:
   endpoints:
